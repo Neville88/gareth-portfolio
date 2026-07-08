@@ -10,7 +10,7 @@ const FOOTER_LINKS = [
 
 export default function Footer() {
   return (
-    <footer className="relative mt-10 rounded-t-[4rem] border-t border-white/10 bg-[#050509] px-6 pb-10 pt-16 sm:px-12 sm:pt-20">
+    <footer className="relative z-20 mt-10 rounded-t-[4rem] border-t border-white/10 bg-[#050509] px-6 pb-10 pt-16 sm:px-12 sm:pt-20">
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
           <div className="max-w-md">

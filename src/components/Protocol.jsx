@@ -169,13 +169,20 @@ export default function Protocol() {
 
     const ctx = gsap.context(() => {
       const cards = gsap.utils.toArray('.protocol-card')
+      const spacer = root.current?.querySelector('.protocol-spacer')
 
       cards.forEach((card, i) => {
+        const isLast = i === cards.length - 1
+
         ScrollTrigger.create({
           trigger: card,
           start: 'top top',
+          // Last card needs extra scroll distance so the pin releases before
+          // Get Started / footer content slides in underneath it on mobile.
+          end: isLast && spacer ? () => `+=${spacer.offsetHeight}` : undefined,
           pin: true,
           pinSpacing: false,
+          anticipatePin: 1,
         })
 
         // underneath cards scale down, blur, and fade as the next enters
@@ -194,6 +201,8 @@ export default function Protocol() {
           })
         }
       })
+
+      ScrollTrigger.refresh()
     }, root)
 
     return () => ctx.revert()
@@ -259,6 +268,8 @@ export default function Protocol() {
           </div>
         )
       })}
+      {/* Scroll runway so the last pinned card can release before Get Started */}
+      <div className="protocol-spacer h-[100dvh] w-full shrink-0" aria-hidden="true" />
     </section>
   )
 }

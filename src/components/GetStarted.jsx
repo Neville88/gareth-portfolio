@@ -30,7 +30,7 @@ export default function GetStarted({ onOpenModal }) {
     <section
       id="start"
       ref={root}
-      className="relative mx-auto max-w-5xl px-6 py-28 text-center sm:px-10 sm:py-40"
+      className="relative z-20 mx-auto max-w-5xl bg-night px-6 py-28 text-center sm:px-10 sm:py-40"
     >
       <p
         data-start
