@@ -164,6 +164,9 @@ export default function Protocol() {
   const root = useRef(null)
 
   useEffect(() => {
+    // Prevents pin jumps when mobile browser chrome (URL bar) resizes the viewport.
+    ScrollTrigger.config({ ignoreMobileResize: true })
+
     const ctx = gsap.context(() => {
       const cards = gsap.utils.toArray('.protocol-card')
 
@@ -203,7 +206,7 @@ export default function Protocol() {
         return (
           <div
             key={s.step}
-            className="protocol-card relative flex h-screen w-full items-center justify-center overflow-hidden bg-night"
+            className="protocol-card relative flex h-[100dvh] w-full items-center justify-center overflow-hidden bg-night"
             style={{ zIndex: i + 1 }}
           >
             <img
@@ -213,24 +216,27 @@ export default function Protocol() {
               className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.12]"
             />
             <div className="absolute inset-0 bg-gradient-to-br from-night via-night/90 to-night/70" />
-            <div className="absolute inset-4 rounded-[3rem] border border-white/10 sm:inset-8" />
+            <div className="absolute inset-3 rounded-[2rem] border border-white/10 sm:inset-8 sm:rounded-[3rem]" />
 
-            <div className="relative z-10 grid w-full max-w-6xl grid-cols-1 items-center gap-10 px-8 sm:px-14 lg:grid-cols-2 lg:gap-16">
-              <div>
-                <div className="mb-6 flex items-center gap-4">
-                  <span className="font-drama text-6xl italic text-accent glow-text sm:text-7xl">
+            <div className="relative z-10 grid w-full max-w-6xl grid-cols-1 items-center gap-7 px-6 sm:gap-10 sm:px-14 lg:grid-cols-2 lg:gap-16">
+              <div className="order-2 lg:order-1">
+                <div className="mb-3 flex items-center gap-3 sm:mb-6 sm:gap-4">
+                  <span className="font-drama text-5xl italic text-accent glow-text sm:text-7xl">
                     {s.step}
                   </span>
-                  <span className="font-mono text-xs uppercase tracking-[0.3em] text-light/40">
+                  <span className="font-mono text-[0.6rem] uppercase tracking-[0.3em] text-light/40 sm:text-xs">
                     Protocol step
                   </span>
                 </div>
-                <h3 className="text-balance text-3xl font-bold leading-[1.05] tracking-tight text-light sm:text-5xl">
+                <h3 className="text-balance text-2xl font-bold leading-[1.1] tracking-tight text-light sm:text-5xl">
                   {s.title}
                 </h3>
-                <div className="mt-6 space-y-3 max-w-xl">
+                <div className="mt-3 space-y-2 max-w-xl sm:mt-6 sm:space-y-3">
                   {s.lines.map((line, li) => (
-                    <p key={li} className="text-base leading-relaxed text-light/60 sm:text-lg">
+                    <p
+                      key={li}
+                      className="text-sm leading-relaxed text-light/60 sm:text-lg"
+                    >
                       {line}
                     </p>
                   ))}
@@ -239,14 +245,14 @@ export default function Protocol() {
                   href={s.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="lift mt-8 inline-flex items-center gap-2 rounded-full border border-accent/40 px-4 py-2 font-mono text-xs uppercase tracking-widest text-accent hover:bg-accent/10"
+                  className="lift mt-5 inline-flex items-center gap-2 rounded-full border border-accent/40 px-3.5 py-2 font-mono text-[0.65rem] uppercase tracking-widest text-accent hover:bg-accent/10 sm:mt-8 sm:px-4 sm:text-xs"
                 >
                   {s.tag}
                   <ArrowUpRight size={14} />
                 </a>
               </div>
 
-              <div className="mx-auto aspect-square w-full max-w-sm rounded-[2.5rem] border border-white/10 bg-white/[0.02] p-8 backdrop-blur-sm sm:p-12">
+              <div className="order-1 mx-auto aspect-square w-32 rounded-[1.5rem] border border-white/10 bg-white/[0.02] p-4 backdrop-blur-sm sm:w-full sm:max-w-sm sm:rounded-[2.5rem] sm:p-12 lg:order-2">
                 <Art />
               </div>
             </div>

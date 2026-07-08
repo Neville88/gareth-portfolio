@@ -59,7 +59,7 @@ export default function ContactModal({ open, onClose }) {
     >
       <div
         ref={panelRef}
-        className="relative w-full max-w-md rounded-[2.5rem] border border-white/10 bg-surface/95 p-8 shadow-[0_40px_120px_-30px_rgba(123,97,255,0.5)] sm:p-10"
+        className="relative max-h-[90vh] w-full max-w-md overflow-y-auto rounded-[2.5rem] border border-white/10 bg-surface/95 p-8 shadow-[0_40px_120px_-30px_rgba(123,97,255,0.5)] sm:p-10"
       >
         <button
           onClick={onClose}

@@ -59,7 +59,7 @@ export default function Hero({ onOpenModal }) {
         <div className="max-w-2xl">
           <p
             data-hero-fade
-            className="mb-6 font-mono text-xs uppercase tracking-[0.35em] text-accent"
+            className="mb-6 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-accent sm:text-xs sm:tracking-[0.35em]"
           >
             Full-stack · Analytics · Automation
           </p>
