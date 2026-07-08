@@ -19,9 +19,10 @@ export default function Navbar({ scrolled, onOpenModal }) {
       >
         <a
           href="#top"
-          className="lift group flex items-center gap-2 pl-2 font-mono text-sm font-medium tracking-widest text-light"
+          aria-label="Back to top"
+          className="logo-bounce group flex items-center gap-2 pl-2 font-mono text-sm font-medium tracking-widest text-light/90"
         >
-          <span className="inline-block h-2 w-2 rounded-full bg-accent glow-accent" />
+          <span className="inline-block h-2 w-2 rounded-full bg-accent glow-accent transition-transform duration-300 group-hover:scale-125" />
           {BRAND_SHORT}
         </a>
 
