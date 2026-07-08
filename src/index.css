@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-night text-light font-sans antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: #7b61ff;
+    color: #0a0a14;
+  }
+
+  /* Slim neon scrollbar to match the instrument feel */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0a0a14;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2a2440;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #7b61ff;
+  }
+}
+
+@layer components {
+  /* ---- Global inline SVG noise overlay (feTurbulence @ 0.05) ---- */
+  .noise-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.05;
+    mix-blend-mode: overlay;
+  }
+
+  /* ---- Magnetic button: overflow-hidden shell + sliding bg span ---- */
+  .btn-magnetic {
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    isolation: isolate;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+      box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+  }
+  .btn-magnetic:hover {
+    transform: scale(1.03);
+  }
+  .btn-magnetic:active {
+    transform: scale(0.985);
+  }
+  /* the sliding background layer */
+  .btn-magnetic .btn-fill {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    transform: translateY(101%);
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .btn-magnetic:hover .btn-fill {
+    transform: translateY(0);
+  }
+
+  /* ---- Interactive lift for links / small controls ---- */
+  .lift {
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+      color 0.3s ease, opacity 0.3s ease;
+  }
+  .lift:hover {
+    transform: translateY(-1px);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Neon halo used behind key accents */
+  .glow-accent {
+    box-shadow: 0 0 40px -8px rgba(123, 97, 255, 0.55),
+      0 0 120px -30px rgba(123, 97, 255, 0.35);
+  }
+
+  .glow-text {
+    text-shadow: 0 0 30px rgba(123, 97, 255, 0.45);
+  }
+
+  /* Blinking terminal cursor */
+  .cursor-blink {
+    animation: cursor-blink 1s steps(2, start) infinite;
+  }
+
+  /* Pulsing status dot */
+  .pulse-dot {
+    animation: pulse-dot 1.8s ease-in-out infinite;
+  }
+
+  .hairline {
+    border-color: rgba(240, 239, 244, 0.1);
+  }
+}
+
+@keyframes cursor-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.55);
+    opacity: 1;
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(52, 211, 153, 0);
+    opacity: 0.75;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
