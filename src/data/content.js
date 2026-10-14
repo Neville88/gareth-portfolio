@@ -12,7 +12,8 @@ export const EMAIL = 'garethneville3@gmail.com'
 export const WHATSAPP = '256702777745'
 
 export const LINKS = {
-  footystats: 'https://footystats.timelessbranch.com',
+  ballo: 'https://ballonetwork.com',
+  senate: 'https://senateleague.ballonetwork.com',
   afrokreate: 'https://neville88.github.io/afrokreate-website/',
   linkedin:
     'https://www.linkedin.com/in/gareth-kisuze-060b7a26a/?isSelfProfile=true',
@@ -50,26 +51,36 @@ export const NAV_LINKS = [
 export const PROTOCOL_STEPS = [
   {
     step: '01',
-    title: 'FootyStats \u2014 End-to-end build',
+    title: 'Ballo \u2014 Amateur football, on record',
     lines: [
-      'Co-founder and primary builder of a real-time tournament ecosystem with a live-score experience and an admin dashboard.',
-      'A data pipeline drives it end to end: CSV ETL, statistical aggregation, and predictive infrastructure \u2014 team placed 2nd at HACK UCU 2025, live in production.',
+      'Ballo, formerly FootyStats, is the all-in-one platform for amateur football: leagues and tournaments, player and team records, and a public trail that stays intact.',
+      'Live scores, the admin dashboard, and match history sit in one system so schools, scouts, and clubs can use the record.',
     ],
-    tag: 'footystats.timelessbranch.com',
-    href: LINKS.footystats,
+    tag: 'ballonetwork.com',
+    href: LINKS.ballo,
   },
   {
     step: '02',
-    title: 'Analytics inside the product',
+    title: 'Senate League \u2014 Unified system',
     lines: [
-      'Chart.js dashboards with KPI tracking, aggregation, and reporting built directly into the product surface.',
-      'The point is not charts for their own sake \u2014 it is insight generation that turns raw events into decisions.',
+      'One master leaderboard for the MoMo Senate League, fed by every discipline, with live match recording from a single admin console.',
+      'A result is recorded once and scored twice, so each sport keeps its own table while the master table stays in lockstep. Only one match can be live at a time.',
     ],
-    tag: 'Chart.js \u00b7 KPIs \u00b7 reporting',
-    href: LINKS.footystats,
+    tag: 'senateleague.ballonetwork.com',
+    href: LINKS.senate,
   },
   {
     step: '03',
+    title: 'Analytics inside the product',
+    lines: [
+      'Chart.js dashboards with KPI tracking, aggregation, and reporting built directly into Ballo.',
+      'The point is not charts for their own sake \u2014 it is insight generation that turns raw events into decisions.',
+    ],
+    tag: 'ballonetwork.com',
+    href: LINKS.ballo,
+  },
+  {
+    step: '04',
     title: 'AfroKreate \u2014 WhatsApp decision navigation',
     lines: [
       'A WhatsApp-based decision navigation platform built on the Meta WhatsApp Cloud API, full-stack across React, Node, Express, and Supabase.',

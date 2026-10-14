@@ -211,7 +211,7 @@ export default function Protocol() {
   return (
     <section id="protocol" ref={root} className="relative">
       {PROTOCOL_STEPS.map((s, i) => {
-        const Art = ART[i]
+        const Art = ART[i % ART.length]
         return (
           <div
             key={s.step}
@@ -219,7 +219,7 @@ export default function Protocol() {
             style={{ zIndex: i + 1 }}
           >
             <img
-              src={STEP_IMAGES[i]}
+              src={STEP_IMAGES[i % STEP_IMAGES.length]}
               alt=""
               aria-hidden="true"
               className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.12]"

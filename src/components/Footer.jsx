@@ -2,7 +2,8 @@ import { ArrowUpRight } from 'lucide-react'
 import { BRAND, PURPOSE, EMAIL, LINKS } from '../data/content'
 
 const FOOTER_LINKS = [
-  { label: 'FootyStats', href: LINKS.footystats },
+  { label: 'Ballo', href: LINKS.ballo },
+  { label: 'Senate League', href: LINKS.senate },
   { label: 'AfroKreate', href: LINKS.afrokreate },
   { label: 'LinkedIn', href: LINKS.linkedin },
   { label: 'WhatsApp', href: LINKS.whatsapp },
